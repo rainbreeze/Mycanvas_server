@@ -7,12 +7,6 @@ const db = require('./config/db');  // config/db.js에서 연결한 데이터베
 // 필요한 라우터 불러오기
 const registerRoutes = require('./routes/registerRoutes');
 const loginRoutes = require('./routes/loginRoutes');
-const gameRoutes = require('./routes/gameRoutes');
-const playlistRoutes = require('./routes/playlistRoutes');
-const playlistMusicRoutes = require('./routes/playlistMusicRoutes');
-const reviewRoutes = require('./routes/reviewRoutes');
-const commentRoutes = require('./routes/commentRoutes');
-const replyRoutes = require('./routes/replyRoutes');
 const mypageRoutes = require('./routes/mypageRoutes');
 
 const app = express();
@@ -27,12 +21,6 @@ app.use(bodyParser.json());
 // 라우터 사용
 app.use('/register', registerRoutes);
 app.use('/login', loginRoutes);
-app.use('/game', gameRoutes);
-app.use('/playlist', playlistRoutes);
-app.use('/playlistmusic', playlistMusicRoutes);
-app.use('/reviews', reviewRoutes);
-app.use('/comment', commentRoutes);
-app.use('/reply', replyRoutes);
 app.use('/api', mypageRoutes);  // 마이페이지 및 프로필 이미지 업로드 라우트 포함
 
 // 서버 실행

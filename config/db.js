@@ -2,11 +2,11 @@
 const mysql = require('mysql2');
 
 const pool = mysql.createPool({
-    host: 'maglev.proxy.rlwy.net',
+    host: 'nozomi.proxy.rlwy.net',
     user: 'root',
-    password: 'XKgncJXdXqGqAwJTOaPBAuSLxpZRYGqG',
+    password: 'QsZXWjmpzqhZNGlZYZHQiEMmDeXNmFyz',
     database: 'railway',
-    port: 30153,
+    port: 21532,
     waitForConnections: true,
     connectionLimit: 10,            // 동시에 열 수 있는 커넥션 수
     queueLimit: 0,
