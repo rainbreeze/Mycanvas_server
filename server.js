@@ -21,7 +21,12 @@ app.use(bodyParser.json());
 // 라우터 사용
 app.use('/register', registerRoutes);
 app.use('/login', loginRoutes);
-app.use('/api', mypageRoutes);  // 마이페이지 및 프로필 이미지 업로드 라우트 포함
+app.use('/mypage', mypageRoutes);  // 마이페이지 및 프로필 이미지 업로드 라우트 포함
+
+// 예시
+app.get('/hello', (req, res) => {
+  res.json({ message: 'Hello from server!' });
+});
 
 // 서버 실행
 const PORT = process.env.PORT || 3001;
