@@ -28,6 +28,33 @@ app.get('/hello', (req, res) => {
   res.json({ message: 'Hello from server!' });
 });
 
+// 모든 activity 조회
+app.get('/activities', (req, res) => {
+  const query = 'SELECT id, name FROM activity';
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ error: 'DB 조회 실패' });
+    }
+    res.json(results);
+  });
+});
+
+// activity 추가
+app.post('/activities', (req, res) => {
+  const { name, image } = req.body;
+  if (!name) return res.status(400).json({ error: 'name 필수' });
+
+  const query = 'INSERT INTO activity (name, image) VALUES (?, ?)';
+  db.query(query, [name, image || null], (err, result) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ error: 'DB 삽입 실패' });
+    }
+    res.json({ message: 'Activity 추가 성공', id: result.insertId });
+  });
+});
+
 // 서버 실행
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
