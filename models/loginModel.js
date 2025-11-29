@@ -15,8 +15,8 @@ const getUserById = (userId, callback) => {
 };
 
 // 비밀번호 비교 함수
-const comparePassword = (enteredPassword, storedPassword, callback) => {
-    bcrypt.compare(enteredPassword, storedPassword, (err, isMatch) => {
+const comparePassword = (enteredPassword, storedPasswordHash, callback) => {
+    bcrypt.compare(enteredPassword, storedPasswordHash, (err, isMatch) => {
         if (err) {
             return callback(err, null);
         }

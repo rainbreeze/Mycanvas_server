@@ -15,7 +15,8 @@ const hashPassword = (password, callback) => {
 
 // 사용자 등록 함수
 const createUser = (userId, email, hashedPassword, userName, callback) => {
-    const query = 'INSERT INTO users (userId, email, password, userName) VALUES (?, ?, ?, ?)';
+    // ✅ password -> password_hash 로 변경
+    const query = 'INSERT INTO users (userId, email, password_hash, userName) VALUES (?, ?, ?, ?)';
     db.query(query, [userId, email, hashedPassword, userName], (err, result) => {
         if (err) {
             return callback(err, null);

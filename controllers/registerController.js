@@ -10,14 +10,14 @@ const register = (req, res) => {
     registerModel.hashPassword(password, (err, hashedPassword) => {
         if (err) {
             console.error('비밀번호 해싱 실패:', err);
-            return res.status(500).json({ error: '비밀번호 해싱 실패' });
+            return res.status(500).json({ message: '비밀번호 해싱 실패' });
         }
 
         // 사용자 등록
         registerModel.createUser(userId, email, hashedPassword, userName, (err, result) => {
             if (err) {
                 console.error('회원가입 실패:', err);
-                return res.status(500).json({ error: '회원가입 실패' });
+                return res.status(500).json({ message: '회원가입 실패' });
             }
             res.status(200).json({ message: '회원가입 성공!' });
         });
