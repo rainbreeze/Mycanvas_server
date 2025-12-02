@@ -23,6 +23,7 @@ app.use(express.json());               // bodyParser 대신 express 내장 사�
 //   POST http://localhost:3001/register  (회원가입)
 //   POST http://localhost:3001/login     (로그인)
 //   GET/POST http://localhost:3001/mypage ... (마이페이지 관련)
+
 app.use('/register', registerRoutes);
 app.use('/login', loginRoutes);
 app.use('/mypage', mypageRoutes);
